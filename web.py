@@ -19,5 +19,12 @@ st.text_input(label="Suggest a To-Do",
               key="new_todo")
 
 
-for todo in todos:
-    st.checkbox(todo)
+for index, todo in enumerate(todos):
+    checkbox = st.checkbox(todo, key=todo)
+    if checkbox:
+        todos.pop(index)
+        f.write_todos(todos)
+        del st.session_state[todo]
+        st.experimental_rerun()
+    else:
+        pass
