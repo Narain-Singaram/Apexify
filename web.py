@@ -1,6 +1,6 @@
 import streamlit as st
 import functions as f
-import random as rand
+import random
 
 def opn_css_file(css_file):
     with open(css_file) as css_f:
@@ -50,9 +50,8 @@ with tab1:
         else:
             pass
     if st.button('Shuffle Order'):
-        rand.shuffle(todos)
-    else:
-        pass
+        random.shuffle(todos)
+        f.write_todos(todos)
 
 with tab2:
     repeated_code()
