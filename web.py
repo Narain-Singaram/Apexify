@@ -43,12 +43,13 @@ with tab1:
         pass
 
 with tab2:
-    repeated_code()
+    # repeated_code()
     st.subheader ("Edit Feature in progress. Currently under maintenance")
-    for index, todo in enumerate(todos):
-        st.text_input(label="Edit " + todo + "in position" + " " + str(index + 1),
-                      value=todo,
-                      on_change=edit_todo(index),
-                      key="edit_todo" + str(index))
+    # for index, todo in enumerate(todos):
+    #     st.text_input(label="Edit " + todo + "in position" + " " + str(index + 1),
+    #                   value=todo,
+    #                   on_change=edit_todo(index),
+    #                   key="edit_todo" + str(index))
+    pass
 
 
