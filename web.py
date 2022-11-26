@@ -44,7 +44,7 @@ with tab1:
 
 with tab2:
     repeated_code()
-    st.subheader("Edit Feature in progress. Currently under maintenance")
+    st.subheader ("Edit Feature in progress. Currently under maintenance")
     for index, todo in enumerate(todos):
         st.text_input(label="Edit " + todo + "in position" + " " + str(index + 1),
                       value=todo,
