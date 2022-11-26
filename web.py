@@ -8,8 +8,8 @@ def crt_todo():
     f.write_todos(todos)
     print(todo)
 
-def edit_todo:
-
+def edit_todo(index):
+    sel_edit_todo = st.session_state["edit_todo" + index]
 
 def repeated_code():
     st.write("Created by: Narain Singaram")
@@ -17,7 +17,7 @@ def repeated_code():
 
 todos = f.get_todos()
 
-tab1, tab2, tab3 = st.tabs(["Main", "Edit", "Owl"])
+tab1, tab2 = st.tabs(["Main", "Edit"])
 
 with tab1:
     repeated_code()
@@ -42,9 +42,10 @@ with tab1:
 
 with tab2:
     repeated_code()
-    st.text_input(label="Edit a To-Do",
-                  placeholder="Select the current position of the to-do to edit. Ex. 2",
-                  on_change=edit_todo,
-                  key="edit_todo")
-with tab3:
-    print("water")
+
+    for index, todo in enumerate(todos):
+        st.text_input(label="Edit " + todo + "in position" + " " + str(index + 1),
+                      value=todo,
+                      on_change=edit_todo(index),
+                      key=f"edit_todo{index}")
+
