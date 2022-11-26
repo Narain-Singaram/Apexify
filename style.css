@@ -9,10 +9,18 @@ body {
 .stButton>button {
     color: #000;
     display: block;
+    padding: 5px 10px;
     margin: auto;
     border-radius: 15px;
     border: none;
     background-color: #fff;
+    transition: .15s;
+}
+
+.stButton>button:hover {
+    color: #fff;
+    background-color: #262626;
+    transform: translate(0px,-2px);
 }
 
 .stTextInput>div>div>input {
