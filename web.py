@@ -9,7 +9,9 @@ def crt_todo():
     print(todo)
 
 def edit_todo(index):
-    sel_edit_todo = st.session_state["edit_todo" + index]
+    # sel_edit_todo = st.session_state["edit_todo" + str(index)]
+    # todos[str(index - 1)] = sel_edit_todo
+    pass
 
 def repeated_code():
     st.write("Created by: Narain Singaram")
@@ -42,10 +44,10 @@ with tab1:
 
 with tab2:
     repeated_code()
-
+    st.subheader("Edit Feature in progress. Currently under maintenance")
     for index, todo in enumerate(todos):
         st.text_input(label="Edit " + todo + "in position" + " " + str(index + 1),
                       value=todo,
                       on_change=edit_todo(index),
-                      key=f"edit_todo{index}")
+                      key="edit_todo" + str(index))
 
