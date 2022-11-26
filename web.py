@@ -2,21 +2,19 @@ import streamlit as st
 import functions as f
 import random as rand
 
-hide_streamlit_style = """
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
+streamlit_styles = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            div.stButton > button { 
-                color: #000;
-                display: block;
-                margin: auto;
-                border-radius: 10px;
-                border: none;
-                background-color: #fff;
-            }
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(streamlit_styles, unsafe_allow_html=True)
 
 def crt_todo():
     todo = st.session_state["new_todo"]
