@@ -1,3 +1,6 @@
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
 body {
     color: #fff;
     background-color: #4F8BF9;
@@ -7,11 +10,11 @@ body {
     color: #000;
     display: block;
     margin: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     border: none;
     background-color: #fff;
 }
 
 .stTextInput>div>div>input {
-    color: #4F8BF9;
+    border: none;
 }

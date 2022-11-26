@@ -2,16 +2,14 @@ import streamlit as st
 import functions as f
 import random as rand
 
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+def opn_css_file(css_file):
+    with open(css_file) as css_f:
+        st.markdown(f'<style>{css_f.read()}</style>', unsafe_allow_html=True)
 
-local_css("style.css")
+opn_css_file("style.css")
 
 streamlit_styles = """
             <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
             </style>
             """
 st.markdown(streamlit_styles, unsafe_allow_html=True)
