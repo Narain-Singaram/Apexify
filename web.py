@@ -2,6 +2,22 @@ import streamlit as st
 import functions as f
 import random as rand
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            div.stButton > button { 
+                color: #000;
+                display: block;
+                margin: auto;
+                border-radius: 10px;
+                border: none;
+                background-color: #fff;
+            }
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 def crt_todo():
     todo = st.session_state["new_todo"]
     todos.append(todo + "\n")
