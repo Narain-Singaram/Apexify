@@ -15,12 +15,10 @@ streamlit_styles = """
 st.markdown(streamlit_styles, unsafe_allow_html=True)
 
 def crt_todo():
-    todo = st.session_state["new_todo"]
+    todo = st.session_state["new_todo"].title()
     todos.append(todo + "\n")
+    st.success(f'{todo} successfully created as a todo.', icon="✅")
     f.write_todos(todos)
-    st.balloons() #Balloons Animation
-    print(todo)
-
 def edit_todo(index):
     # sel_edit_todo = st.session_state["edit_todo" + str(index)]
     # todos[str(index - 1)] = sel_edit_todo
@@ -31,7 +29,6 @@ def repeated_code():
     st.title("Apexify | To-Do List App")
 
 todos = f.get_todos()
-
 tab1, tab2 = st.tabs(["Main", "Edit"])
 
 with tab1:
@@ -45,6 +42,7 @@ with tab1:
         checkbox = st.checkbox(todo, key=todo)
         if checkbox:
             todos.pop(index)
+            st.success('This is a success message!', icon="✅")
             f.write_todos(todos)
             del st.session_state[todo]
             st.experimental_rerun()
