@@ -24,9 +24,10 @@ def edit_todo(index):
     # todos[str(index - 1)] = sel_edit_todo
     pass
 
+title = "Apexify | To-Do List App"
 def repeated_code():
     st.write("Created by: Narain Singaram")
-    st.title("Apexify | To-Do List App")
+    st.title(title)
 
 todos = f.get_todos()
 tab1, tab2 = st.tabs(["Main", "Edit"])
@@ -56,6 +57,18 @@ with tab1:
             st.info('The To-Do List has been shuffled.', icon="ℹ️")
             random.shuffle(todos)
             f.write_todos(todos)
+
+    with open('todo_list.rtf','r') as t_lst, open('download_todo_list.txt','a') as dl_file:
+        dl_file.writelines("\n" + title + " --- Created By: Narain Singaram")
+        for l in t_lst:
+            dl_file.writelines(l)
+
+    with open("download_todo_list.txt", "rb") as dl_file:
+        btn = st.download_button(
+            label="Download image",
+            data=dl_file,
+            file_name="download_todo_list.txt",
+        )
 
 with tab2:
     repeated_code()
