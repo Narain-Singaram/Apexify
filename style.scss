@@ -9,7 +9,7 @@ footer {visibility: hidden;}
     transition: .15s;
 }
 
-.stButton>button:hover {
+.stButton>button:hover, .stDownloadButton>button:hover {
     color: white;
     background-color: #303030;
     transform: translate(0px,-2px);

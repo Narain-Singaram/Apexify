@@ -8,8 +8,11 @@ def opn_css_file(css_file):
 
 opn_css_file("style.scss")
 
-st.info(f'There must be todo elements to be able to access any actions.', icon="ℹ️")
-
+streamlit_styles = """
+            <style>
+            </style>
+            """
+st.markdown(streamlit_styles, unsafe_allow_html=True)
 
 def crt_todo():
     todo = st.session_state["new_todo"].title()
@@ -45,28 +48,27 @@ with tab1:
             st.experimental_rerun()
         else:
             pass
-        with st.sidebar:
-            if st.button('Shuffle Order'):
-                try:
-                    todo.capitalize()
-                except NameError:
-                    st.error('There are no todos to shuffle in the todo list', icon="🚨")
-                else:
-                    st.info('The To-Do List has been shuffled.', icon="ℹ️")
-                    random.shuffle(todos)
-                    f.write_todos(todos)
+    if st.button('Shuffle Order'):
+        try:
+            todo.capitalize()
+        except NameError:
+            st.error('There are no todos to shuffle in the todo list', icon="🚨")
+        else:
+            st.info('The To-Do List has been shuffled.', icon="ℹ️")
+            random.shuffle(todos)
+            f.write_todos(todos)
 
-            with open('todo_list.rtf', 'r') as t_lst, open('download_todo_list.txt', 'a') as dl_file:
-                dl_file.writelines("\n" + title + " --- Created By: Narain Singaram")
-                for l in t_lst:
-                    dl_file.writelines(l)
+    with open('todo_list.rtf','r') as t_lst, open('download_todo_list.txt','a') as dl_file:
+        dl_file.writelines("\n" + title + " --- Created By: Narain Singaram")
+        for l in t_lst:
+            dl_file.writelines(l)
 
-            with open("download_todo_list.txt", "rb") as dl_file:
-                st.download_button(
-                    label="Download To-Do List",
-                    data=dl_file,
-                    file_name="download_todo_list.txt",
-                )
+    with open("download_todo_list.txt", "rb") as dl_file:
+        st.download_button(
+            label="Download To-Do List",
+            data=dl_file,
+            file_name="download_todo_list.txt",
+        )
 
 with tab2:
     repeated_code()
@@ -77,4 +79,3 @@ with tab2:
                       on_change=edit_todo(index),
                       key="edit_todo" + str(index))
     pass
-
