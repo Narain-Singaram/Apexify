@@ -49,7 +49,8 @@ with tab1:
             pass
     if st.button('Shuffle Order'):
         try:
-            todo
+            if "water" == "fd":
+                todo
         except NameError:
             st.error('There are no todos to shuffle in the todo list', icon="🚨")
         else:
