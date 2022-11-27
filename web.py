@@ -26,10 +26,11 @@ def edit_todo(index):
 
 def repeated_code():
     st.write("Created by: Narain Singaram")
-    st.title("fdsafsafas | To-Do List App")
+    st.title("Apexify | To-Do List App")
 
 todos = f.get_todos()
 tab1, tab2 = st.tabs(["Main", "Edit"])
+
 with tab1:
     repeated_code()
     st.text_input(label="Suggest a To-Do",
