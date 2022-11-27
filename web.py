@@ -64,8 +64,8 @@ with tab1:
             dl_file.writelines(l)
 
     with open("download_todo_list.txt", "rb") as dl_file:
-        btn = st.download_button(
-            label="Download image",
+        st.download_button(
+            label="Download To-Do List",
             data=dl_file,
             file_name="download_todo_list.txt",
         )
