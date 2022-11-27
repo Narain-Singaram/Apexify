@@ -2,6 +2,7 @@ import streamlit as st
 import functions as f
 import random
 
+st.set_page_config(page_title="Apexify", layout="centered", initial_sidebar_state = "auto")
 def opn_css_file(css_file):
     with open(css_file) as css_f:
         st.markdown(f'<style>{css_f.read()}</style>', unsafe_allow_html=True)
