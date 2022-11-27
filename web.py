@@ -18,6 +18,7 @@ def crt_todo():
     todo = st.session_state["new_todo"]
     todos.append(todo + "\n")
     f.write_todos(todos)
+    st.balloons() #Balloons Animation
     print(todo)
 
 def edit_todo(index):
