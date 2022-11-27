@@ -1,25 +1,28 @@
+$white: #fff;
+$black: #000;
+$btn_bg = #262626;
+
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
 body {
-    color: #fff;
-    background-color: #4F8BF9;
+    color: $white;
 }
 
 .stButton>button {
-    color: #000;
+    color: $black;
     display: block;
     padding: 5px 10px;
     margin: auto;
     border-radius: 15px;
     border: none;
-    background-color: #fff;
+    background-color: $white;
     transition: .15s;
 }
 
 .stButton>button:hover {
-    color: #fff;
-    background-color: #262626;
+    color: $white;
+    background-color: $btn_bg;
     transform: translate(0px,-2px);
 }
 
