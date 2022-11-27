@@ -30,7 +30,6 @@ def repeated_code():
 
 todos = f.get_todos()
 tab1, tab2 = st.tabs(["Main", "Edit"])
-
 with tab1:
     repeated_code()
     st.text_input(label="Suggest a To-Do",
