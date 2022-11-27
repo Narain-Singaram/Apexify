@@ -1,4 +1,4 @@
-FILEPATH = "todo_list.txt"
+FILEPATH = "todo_list.rtf"
 
 def get_todos(filepath=FILEPATH):
     """ Read a text file and return the list of
