@@ -17,7 +17,7 @@ st.markdown(streamlit_styles, unsafe_allow_html=True)
 def crt_todo():
     todo = st.session_state["new_todo"].title()
     todos.append(todo + "\n")
-    st.success(f'{todo} successfully created as a todo.', icon="✅")
+    st.info(f'{todo} successfully created as a todo.', icon="ℹ️")
     f.write_todos(todos)
 def edit_todo(index):
     # sel_edit_todo = st.session_state["edit_todo" + str(index)]
@@ -42,15 +42,20 @@ with tab1:
         checkbox = st.checkbox(todo, key=todo)
         if checkbox:
             todos.pop(index)
-            st.success('This is a success message!', icon="✅")
             f.write_todos(todos)
             del st.session_state[todo]
             st.experimental_rerun()
         else:
             pass
     if st.button('Shuffle Order'):
-        random.shuffle(todos)
-        f.write_todos(todos)
+        try:
+            todo
+        except NameError:
+            st.error('There are no todos to shuffle in the todo list', icon="🚨")
+        else:
+            st.info('The To-Do List has been shuffled.', icon="ℹ️")
+            random.shuffle(todos)
+            f.write_todos(todos)
 
 with tab2:
     repeated_code()
@@ -61,5 +66,4 @@ with tab2:
                       on_change=edit_todo(index),
                       key="edit_todo" + str(index))
     pass
-
 
