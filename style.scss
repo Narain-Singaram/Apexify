@@ -1,28 +1,17 @@
-$white: #fff;
-$black: #000;
-$btn_bg = #262626;
-
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
-body {
-    color: $white;
-}
-
-.stButton>button {
-    color: $black;
-    display: block;
-    padding: 5px 10px;
-    margin: auto;
+.stButton>button, .stDownloadButton>button {
+    color: black;
     border-radius: 15px;
     border: none;
-    background-color: $white;
+    background-color: white;
     transition: .15s;
 }
 
 .stButton>button:hover {
-    color: $white;
-    background-color: $btn_bg;
+    color: white;
+    background-color: #303030;
     transform: translate(0px,-2px);
 }
 
