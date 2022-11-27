@@ -4,8 +4,6 @@ Apexify is a To-Do List web app developed with a fast and modern user interface.
 
 _Expect some file and folder structure changes in the future_
 
-*A Lot Of Changes Have Not Been Updated On Github*
-
 
 ## Screenshots of Apexify Web App
 Link of the deployed Apexify Web App: https://narain-singaram-apexify-web-fyibkc.streamlit.app/
