@@ -19,7 +19,7 @@ def crt_todo():
     todo = st.session_state["new_todo"].title()
     todos.append(todo + "\n")
     st.info(f'{todo} successfully created as a todo.', icon="ℹ️")
-    f.write_todos(todos)
+    f.write_todos(todos, "todo_list.rtf")
 def edit_todo(index):
     # sel_edit_todo = st.session_state["edit_todo" + str(index)]
     # todos[str(index - 1)] = sel_edit_todo
@@ -30,7 +30,8 @@ def repeated_code():
     st.write("Created by: Narain Singaram")
     st.title(title)
 
-todos = f.get_todos()
+todos = f.read_todos("todo_list.rtf")
+dl_todos = f.read_todos("download_todo_list.txt")
 tab1, tab2 = st.tabs(["Main", "Edit"])
 
 with tab1:
@@ -44,7 +45,7 @@ with tab1:
         checkbox = st.checkbox(todo, key=todo)
         if checkbox:
             todos.pop(index)
-            f.write_todos(todos)
+            f.write_todos(todos, "todo_list.rtf")
             del st.session_state[todo]
             st.experimental_rerun()
         else:
@@ -57,7 +58,7 @@ with tab1:
         else:
             st.info('The To-Do List has been shuffled.', icon="ℹ️")
             random.shuffle(todos)
-            f.write_todos(todos)
+            f.write_todos(todos, "todo_list.rtf")
 
     with open('todo_list.rtf','r') as t_lst, open('download_todo_list.txt','a') as dl_file:
         dl_file.writelines("\n" + title + " --- Created By: Narain Singaram")
