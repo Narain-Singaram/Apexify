@@ -9,6 +9,12 @@ def opn_css_file(css_file):
 
 opn_css_file("style.scss")
 
+streamlit_styles = """
+            <style>
+            </style>
+            """
+st.markdown(streamlit_styles, unsafe_allow_html=True)
+
 def crt_todo():
     todo = st.session_state["new_todo"].title()
     todos.append(todo + "\n")
@@ -18,11 +24,6 @@ def edit_todo(index):
     # sel_edit_todo = st.session_state["edit_todo" + str(index)]
     # todos[str(index - 1)] = sel_edit_todo
     pass
-
-if shuf_err_alrt == True:
-    st.error('There are no todos to shuffle in the todo list', icon="🚨")
-else:
-    st.info('The To-Do List has been shuffled.', icon="ℹ️")
 
 title = "Apexify | To-Do List App"
 def repeated_code():
@@ -53,9 +54,9 @@ with tab1:
         try:
             todo.capitalize()
         except NameError:
-            shuf_err_alrt = True
+            st.error('There are no todos to shuffle in the todo list', icon="🚨")
         else:
-            shuf_err_alrt = False
+            st.info('The To-Do List has been shuffled.', icon="ℹ️")
             random.shuffle(todos)
             f.write_todos(todos, "todo_list.rtf")
 
